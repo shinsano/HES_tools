@@ -414,4 +414,4 @@ def get_efficiency(fuel, equipment, subtype, year=None, energy_star=None, state=
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
