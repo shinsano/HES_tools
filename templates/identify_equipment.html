@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Select Equipment Type{% endblock %}
+
+{% block content %}
+<h2>Select the Equipment Type for {{ session['fuel'] }}:</h2>
+<form method="post">
+    {% for equipment in equipments %}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="equipment_type" id="{{ equipment }}" value="{{ equipment }}" required>
+            <label class="form-check-label" for="{{ equipment }}">
+                {{ equipment }}
+            </label>
+        </div>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Next" class="btn btn-primary">
+</form>
+{% endblock %}
+

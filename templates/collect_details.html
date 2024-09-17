@@ -1,0 +1,32 @@
+<!-- templates/collect_details.html -->
+{% extends "base.html" %}
+
+{% block title %}Provide Additional Details{% endblock %}
+
+{% block content %}
+<h2>Provide Additional Details</h2>
+<form method="post">
+    {% if collect_year_energy_star %}
+        <!-- Year Input -->
+        <div class="form-group">
+            <label for="year">Year of Manufacture (e.g., 2015):</label>
+            <input type="number" class="form-control" name="year" id="year" required>
+        </div>
+        <!-- ENERGY STAR Certification -->
+        <div class="form-group">
+            <label>Is the equipment ENERGY STAR certified?</label><br>
+            <input type="radio" name="energy_star" value="yes" required> Yes<br>
+            <input type="radio" name="energy_star" value="no"> No<br>
+        </div>
+    {% endif %}
+    {% if collect_state %}
+        <!-- State Input -->
+        <div class="form-group">
+            <label for="state">State where the equipment is installed (e.g., CA):</label>
+            <input type="text" name="state" id="state" maxlength="2" required class="form-control">
+        </div>
+    {% endif %}
+    <input type="submit" value="Get Efficiency" class="btn btn-primary">
+</form>
+{% endblock %}
+

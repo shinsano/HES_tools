@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Select Equipment Subtype{% endblock %}
+
+{% block content %}
+<h2>Select the Equipment Subtype for {{ fuel }} {{ equipment }}:</h2>
+<form method="post">
+    {% for description in subtypes %}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="equipment_subtype" id="{{ description }}" value="{{ description }}" required>
+            <label class="form-check-label" for="{{ description }}">
+                {{ description }}
+            </label>
+        </div>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Next" class="btn btn-primary">
+</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!-- templates/fuel.html -->
+{% extends "base.html" %}
+
+{% block title %}Select Fuel Type{% endblock %}
+
+{% block content %}
+<h2>Select the Fuel Type:</h2>
+<form method="post">
+    {% for fuel in fuel_types %}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="fuel_type" id="{{ fuel }}" value="{{ fuel }}" required>
+            <label class="form-check-label" for="{{ fuel }}">
+                {{ fuel }}
+            </label>
+        </div>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Next" class="btn btn-primary">
+</form>
+{% endblock %}

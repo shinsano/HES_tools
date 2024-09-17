@@ -1,0 +1,34 @@
+<!-- templates/summary.html -->
+{% extends "base.html" %}
+
+{% block title %}Summary of Equipment Identified{% endblock %}
+
+{% block content %}
+<h2>Summary of Equipment Identified</h2>
+
+{% if equipment_list %}
+  {% for equipment in equipment_list %}
+    <h3>Equipment {{ loop.index }}:</h3>
+    <ul>
+      <li><strong>Fuel Type:</strong> {{ equipment['Fuel'] }}</li>
+      <li><strong>Equipment Type:</strong> {{ equipment['Equipment'] }}</li>
+      <li><strong>Subtype:</strong> {{ equipment['Subtype'] }}</li>
+      {% if equipment.get('Year') %}
+        <li><strong>Year of Manufacture:</strong> {{ equipment['Year'] }}</li>
+      {% endif %}
+      {% if equipment.get('ENERGY STAR Status') %}
+        <li><strong>ENERGY STAR Status:</strong> {{ equipment['ENERGY STAR Status'] }}</li>
+      {% endif %}
+      {% if equipment.get('State') %}
+        <li><strong>Installed in:</strong> {{ equipment['State'] }}</li>
+      {% endif %}
+      <li><strong>Efficiency:</strong> {{ equipment['Efficiency'] }}</li>
+    </ul>
+  {% endfor %}
+{% else %}
+  <p>No equipment identified.</p>
+{% endif %}
+
+<!-- Option to start over -->
+<a href="{{ url_for('home') }}" class="btn btn-primary">Start Over</a>
+{% endblock %}

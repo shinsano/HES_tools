@@ -1,0 +1,22 @@
+<!-- templates/result.html -->
+{% extends "base.html" %}
+
+{% block title %}Efficiency Result{% endblock %}
+
+{% block content %}
+<h2>Efficiency Result</h2>
+<p>
+  Based on your inputs, the equipment is a {{ equipment_details['Fuel'] }} {{ equipment_details['Equipment'] }} ({{ equipment_details['Subtype'] }})
+  {% if equipment_details.get('Year') %}, manufactured in {{ equipment_details['Year'] }}{% endif %}
+  {% if equipment_details.get('ENERGY STAR Status') %}, rated as {{ equipment_details['ENERGY STAR Status'] }}{% endif %}
+  {% if equipment_details.get('State') %}, installed in {{ equipment_details['State'] }}{% endif %}.
+</p>
+<p>The efficiency value is: {{ equipment_details['Efficiency'] }}</p>
+
+<!-- Prompt for another equipment identification -->
+<p>Do you want to identify another equipment type?</p>
+<form method="post" action="{{ url_for('another_equipment') }}">
+  <button type="submit" name="another" value="yes" class="btn btn-primary">Yes</button>
+  <button type="submit" name="another" value="no" class="btn btn-secondary">No</button>
+</form>
+{% endblock %}

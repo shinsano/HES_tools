@@ -1,0 +1,12 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<br>
+<h2>Heating Equipment Efficiency Determination Tool</h2>
+<br>
+
+<a href="{{ url_for('fuel') }}" class="btn btn-primary">Start Identification</a>
+{% endblock %}
